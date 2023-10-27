@@ -1,0 +1,225 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime JS
+
+<!-- Navbar -->
+<nav class="fixed top-0 z-50 w-full bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
+    <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between px-4 py-2.5 md:px-6">
+        <a href="https://kayinleong.tech" class="flex items-center">
+            <img src="/images/Kayin_White_Small.webp" class="h-6 mr-3 sm:h-9" alt="Kayin Logo" fetchprority="veryhigh" loading="eager" />
+            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
+        </a>
+        <button data-collapse-toggle="mega-menu-full" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden" aria-controls="mega-menu-full" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+            </svg>
+        </button>
+        <div id="mega-menu-full" class="items-center justify-between hidden w-full md:order-1 md:flex md:w-auto">
+            <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:text-sm md:font-medium md:dark:bg-gray-900">
+                <li>
+                    <a href="https://kayinleong.tech" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500" aria-current="page">Home</a>
+                </li>
+                <li>
+                    <button id="mega-menu-full-dropdown-button" data-collapse-toggle="mega-menu-full-dropdown" class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 rounded hover:bg-gray-100 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:w-auto md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-600 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">
+                        About
+                        <svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <a routerLink="/" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">Services</a>
+                </li>
+                <li>
+                    <a href="mailto:job@mail.kayinleong.tech" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">Contact Me</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="mega-menu-full-dropdown" class="hidden mt-1 border-gray-200 shadow-sm border-y bg-gray-50 dark:border-gray-600 dark:bg-gray-800 md:bg-white">
+        <div class="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:px-6">
+            <ul>
+                <li>
+                    <a href="https://kayinleong.tech/#about" class="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <div class="font-semibold">About Myself</div>
+                        <span class="text-sm font-light text-gray-500 dark:text-gray-400">
+                            A little bit about myself!
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://kayinleong.tech/#experiences" class="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <div class="font-semibold">Experiences</div>
+                        <span class="text-sm font-light text-gray-500 dark:text-gray-400">
+                            🥸
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://kayinleong.tech/showcases" class="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <div class="font-semibold">Showcases</div>
+                        <span class="text-sm font-light text-gray-500 dark:text-gray-400">
+                            Next multimillion dolar apps 🍵.
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://kayinleong.tech/#technical_skills" class="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <div class="font-semibold">Technical Skills</div>
+                        <span class="text-sm font-light text-gray-500 dark:text-gray-400">
+                            Red pill or blue pill?
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="https://kayinleong.tech/#educations" class="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <div class="font-semibold">Educations</div>
+                        <span class="text-sm font-light text-gray-500 dark:text-gray-400">
+                            (╯‵□′)╯︵┻━┻
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://kayinleong.tech/#languages" class="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <div class="font-semibold">Languages</div>
+                        <span class="text-sm font-light text-gray-500 dark:text-gray-400">
+                            Selamat, 世界！
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+        <ul class="space-y-2 font-medium">
+            <li>
+                <a href="/" class="mt-12 flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"></path>
+                        <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"></path>
+                    </svg>
+                    <span class="ml-3">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="/protect-pdf" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path clip-rule="evenodd" fill-rule="evenodd" d="M15.75 1.5a6.75 6.75 0 00-6.651 7.906c.067.39-.032.717-.221.906l-6.5 6.499a3 3 0 00-.878 2.121v2.818c0 .414.336.75.75.75H6a.75.75 0 00.75-.75v-1.5h1.5A.75.75 0 009 19.5V18h1.5a.75.75 0 00.53-.22l2.658-2.658c.19-.189.517-.288.906-.22A6.75 6.75 0 1015.75 1.5zm0 3a.75.75 0 000 1.5A2.25 2.25 0 0118 8.25a.75.75 0 001.5 0 3.75 3.75 0 00-3.75-3.75z"></path>
+                    </svg>
+                    <span class="ml-3">Protect PDF</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>
+
+<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
+    <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+        <ul class="space-y-2 font-medium">
+            <li>
+                <a href="/" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"></path>
+                        <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"></path>
+                    </svg>
+                    <span class="ml-3">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="/protect-pdf" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path clip-rule="evenodd" fill-rule="evenodd" d="M15.75 1.5a6.75 6.75 0 00-6.651 7.906c.067.39-.032.717-.221.906l-6.5 6.499a3 3 0 00-.878 2.121v2.818c0 .414.336.75.75.75H6a.75.75 0 00.75-.75v-1.5h1.5A.75.75 0 009 19.5V18h1.5a.75.75 0 00.53-.22l2.658-2.658c.19-.189.517-.288.906-.22A6.75 6.75 0 1015.75 1.5zm0 3a.75.75 0 000 1.5A2.25 2.25 0 0118 8.25a.75.75 0 001.5 0 3.75 3.75 0 00-3.75-3.75z"></path>
+                    </svg>
+                    <span class="ml-3">Protect PDF</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>
+
+<div class="p-4 sm:ml-64">
+    <div class="mt-10 w-full flex justify-between">
+        <span></span>
+        <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+            <span class="sr-only">Open sidebar</span>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"></path>
+            </svg>
+        </button>
+    </div>
+
+    <div class="mb-20 p-4 mt-2">
+        @Body
+    </div>
+
+    <!-- Footer -->
+    <footer class="container p-4 bg-white dark:bg-gray-900">
+        <div class="md:flex md:justify-between">
+            <div class="mb-6 md:mb-0">
+                <a routerLink="/" class="flex items-center">
+                    <img src="/images/Kayin_White_Small.webp" class="h-8 mr-3" fetchprority="verylow" loading="lazy" alt="Kayin Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 gap-8 sm:gap-6">
+                <div id="contacts">
+                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                        Contact me
+                    </h2>
+                    <ul class="text-gray-600 dark:text-gray-400">
+                        <li class="mb-4">
+                            <a href="mailto:job@mail.kayinleong.tech" class="hover:underline">Email</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="https://www.linkedin.com/in/kayinleong/" target="_blank" rel="noopener noreferrer" class="hover:underline">LinkedIn</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="https://github.com/kayinleong/" target="_blank" rel="noopener noreferrer" class="hover:underline">GitHub</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="https://twitter.com/kayinleong/" target="_blank" rel="noopener noreferrer" class="hover:underline">Twitter</a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/kayinleong/" target="_blank" rel="noopener noreferrer" class="hover:underline">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr class="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <span class="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
+                © 2023 Kayin Leong. All Rights Reserved. Taken by The Giraffe 🦒.
+            </span>
+        </div>
+    </footer>
+
+</div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await Invoke();
+    }
+
+    async Task Invoke()
+    {
+        Task.Delay(100);
+        await JS.InvokeVoidAsync("initAccordions");
+        await JS.InvokeVoidAsync("initCarousels");
+        await JS.InvokeVoidAsync("initCollapses");
+        await JS.InvokeVoidAsync("initDials");
+        await JS.InvokeVoidAsync("initDismisses");
+        await JS.InvokeVoidAsync("initDrawers");
+        await JS.InvokeVoidAsync("initDropdowns");
+        await JS.InvokeVoidAsync("initModals");
+        await JS.InvokeVoidAsync("initPopovers");
+        await JS.InvokeVoidAsync("initTabs");
+        await JS.InvokeVoidAsync("initTooltips");
+    }
+}
