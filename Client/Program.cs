@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using pdftools.kayinleong.tech;
+using pdftools.kayinleong.com;
 
-namespace pdftools.kayinleong.tech
+namespace pdftools.kayinleong.com
 {
     public class Program
     {

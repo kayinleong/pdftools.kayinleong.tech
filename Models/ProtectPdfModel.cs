@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components.Forms;
 using System.ComponentModel.DataAnnotations;
 
-namespace pdftools.kayinleong.tech.Models
+namespace pdftools.kayinleong.com.Models
 {
     public class ProtectPdfModel
     {
